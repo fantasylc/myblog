@@ -89,9 +89,9 @@ DATABASES = {
         #'ENGINE': 'django.db.backends.sqlite3',
         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'ENGINE':'django.db.backends.mysql',
-        'NAME':'blogdb',
-        'USER':'root',
-        'PASSWORD':'2898827027',
+        'NAME':'',
+        'USER':'',
+        'PASSWORD':'',
         'HOST':'127.0.0.1',
         'PORT':3306,
     }
@@ -183,8 +183,8 @@ STATIC_URL = '/static/'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.163.com'
 EMAIL_PORT = 25
-EMAIL_HOST_USER = 'liuchao_824@163.com'
-EMAIL_HOST_PASSWORD = '1092640073'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 EMAIL_SUBJECT_PREFIX = 'superliu.me'
 EMAIL_USE_TLS = True
 
