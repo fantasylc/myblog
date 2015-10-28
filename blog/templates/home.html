@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block css %}
+    <title>首页</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}" xmlns="http://www.w3.org/1999/html"/>
+{% endblock %}
+{% block main %}
+   <div id="home1">
+    <div id="first">
+    <section class="box">
+    <ul class="texts">
+      <li class="p1">111</li>
+      <li class="p2">222</li>
+      <li class="p3">333</li>
+    </ul>
+    </section>
+   </div>
+       </div>
+    <hr/>
+       <div id="start">
+   <a href=""><img id ='start_img' src="{% static 'img/start.png' %}"></a>
+      </div>
+
+
+{% endblock %}

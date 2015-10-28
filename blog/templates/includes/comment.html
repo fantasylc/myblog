@@ -1,0 +1,54 @@
+<div class="well usercomment">
+<div class="row">
+  <div class="col-md-2 col-lg-2 col-sm-2 hidden-xs">
+    <img src="/static/img/comment/comment_edit.png" height="100" width="100" alt="">
+  </div>
+  <div class="col-lg-9 col-md-9 col-sm-9">
+    <form id = "comment-form" method="post" enctype="multipart/form-data" accept-charset="utf-8" >
+       {% csrf_token %}
+      <textarea id="comment" name="content" style="width:90%" rows="6" placeholder="请输入评论,少于300字！"></textarea>
+      <input id="put" type="submit" value="评论">
+    </form>
+  </div>
+</div>
+<div>
+<div id="com-ul">
+    {% for comment in comment_list %}
+       <div>
+        <a><h4>{{ comment.user.username }}</h4></a>
+        <p>
+            评论:{% autoescape on%}
+            {{ comment.content }}
+            {% endautoescape %}
+        </p>
+        <p>{{ comment.create_time | date:"Y-m-d H:i:s" }}</p>
+        <div class="div_hr"></div>
+        </div>
+    {% endfor %}
+</div>
+</div>
+</div>
+<script type="application/javascript" language="JavaScript">
+     $('#comment-form').submit(function(){
+
+         $.ajax({
+             type:"POST",
+             url:"/comment/{{ article.id }}/",
+             data:{"comment":$("#comment").val()},
+
+             beforeSend:function(xhr){
+                xhr.setRequestHeader("X-CSRFToken", $.cookie('csrftoken'));
+            },
+             success:function(data, textStatus){
+                $("#comment").val("");
+                $("#com-ul").prepend(data);
+            },
+            error:function(XMLHttpRequest, textStatus, errorThrown){
+                alert(XMLHttpRequest.responseText);
+            }
+         });
+
+         return false;
+     });
+
+</script>

@@ -37,6 +37,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'pagination',
+    'blog',
+    'user_auth',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -48,6 +51,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'pagination.middleware.PaginationMiddleware',
 )
 
 ROOT_URLCONF = 'myblog.urls'
@@ -55,13 +59,17 @@ ROOT_URLCONF = 'myblog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'user_auth/templates/'),os.path.join(BASE_DIR, 'blog/templates/')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
+                'django.template.context_processors.request',
                 'django.contrib.messages.context_processors.messages',
             ],
         },
@@ -69,6 +77,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'myblog.wsgi.application'
+
+
 
 
 # Database
@@ -81,11 +91,72 @@ DATABASES = {
         'ENGINE':'django.db.backends.mysql',
         'NAME':'blogdb',
         'USER':'root',
-        'PASSWORD':'1092640073',
+        'PASSWORD':'2898827027',
         'HOST':'127.0.0.1',
         'PORT':3306,
     }
 }
+
+#logging
+LOGGING = {
+        'version': 1,
+        'disable_existing_loggers': True,
+
+        'filters': {
+            'require_debug_false': {
+                '()': 'django.utils.log.RequireDebugFalse'
+                }
+            },
+        'formatters': {
+            'simple': {
+                'format': '[%(levelname)s] %(module)s : %(message)s'
+                },
+            'verbose': {
+                'format': '[%(asctime)s] [%(levelname)s] %(module)s : %(message)s'
+                }
+            },
+
+        'handlers': {
+            'null': {
+                'level': 'DEBUG',
+                'class': 'django.utils.log.NullHandler',
+                },
+            'console': {
+                'level': 'INFO',
+                'class': 'logging.StreamHandler',
+                'formatter': 'verbose'
+                },
+            'file': {
+                'level': 'INFO',
+                'class': 'logging.FileHandler',
+                'formatter': 'verbose',
+                'filename': 'log/debug.log',
+                'mode': 'a',
+                },
+            'mail_admins': {
+                'level': 'ERROR',
+                'class': 'django.utils.log.AdminEmailHandler',
+                'filters': ['require_debug_false']
+                }
+            },
+        'loggers': {
+            '': {
+                'handlers': ['file', 'console'],
+                'level': 'INFO',
+                'propagate': True,
+                },
+            'django': {
+                'handlers': ['file', 'console'],
+                'level': 'DEBUG',
+                'propagate': True,
+                },
+            'django.request': {
+                'handlers': ['mail_admins', 'console'],
+                'level': 'ERROR',
+                'propagate': True,
+                },
+            }
+        }
 
 
 # Internationalization
@@ -93,7 +164,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'zh_cn'
 
-TIME_ZONE = 'CST'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
@@ -101,8 +172,20 @@ USE_L10N = True
 
 USE_TZ = True
 
+AUTH_USER_MODEL = 'user_auth.User'
 
+PAGE_NUM = 10
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.163.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = 'liuchao_824@163.com'
+EMAIL_HOST_PASSWORD = '1092640073'
+EMAIL_SUBJECT_PREFIX = 'superliu.me'
+EMAIL_USE_TLS = True
+
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

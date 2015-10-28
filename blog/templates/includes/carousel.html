@@ -1,0 +1,56 @@
+{% load staticfiles %}
+<div id="carousel-example-generic" class="carousel slide"  data-ride="carousel">
+  <!-- 小圆点-->
+  <ol class="carousel-indicators">
+      {% for carousel in carousel_list %}
+          {% if forloop.first%}
+              <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+          {% else %}
+              <li data-target="#carousel-example-generic" data-slide-to="{{ forloop.counter }}"></li>
+          {% endif%}
+      {% endfor %}
+  </ol>
+
+  <!-- 图片块 -->
+  <div class="carousel-inner" role="listbox">
+      {% for carousel in carousel_list %}
+            {% if forloop.first%}
+            <div class="item active">
+                <a href="/itblog/article/{{carousel.article.id}}">
+                    <img src="{{carousel.img}}" alt="{{carousel.title}}">
+                    <div class="carousel-caption">
+                        <h4>{{carousel.title}}</h4>
+                        {% autoescape off%}
+                        {{carousel.summary}}
+                        {% endautoescape %}
+                    </div>
+                </a>
+            </div>
+            {% else %}
+            <div class="item">
+                <a href="/itblog/article/{{carousel.article.id}}">
+                    <img src="{{carousel.img}}" alt="{{carousel.title}}">
+                    <div class="carousel-caption">
+                        <h4>{{carousel.title}}</h4>
+                        {% autoescape off%}
+                        {{carousel.summary}}
+                        {% endautoescape %}
+                    </div>
+                </a>
+            </div>
+            {% endif%}
+        {% endfor %}
+    
+
+    </div>
+
+  <!-- 切换图片 -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+  </div>

@@ -1,0 +1,18 @@
+body{
+        background:url("../img/bg1.jpg");
+        background-position: 0 5%;
+        background-repeat: no-repeat;
+
+        background-size: cover;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+
+    }
+
+.login-reg >a{
+        color: #269aff;
+}
+.login-reg >a:hover{
+        color: #ff6611;
+        text-decoration: none;
+}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load pagination_tags %}
+{% block css %}
+    <title>{{ category_name }}</title>
+{% endblock %}
+{% block main %}
+<div class="container">
+    <div id='it_main' class="row">
+
+     <div id="it_content" class="col-md-9 col-sm-9 col-lg-9">
+        <div id="it_content1">
+         <hr/>
+        <!-- 首页文章列表 -->
+
+            <!-- 首页轮播 -->
+            <hr/>
+            <!--首页文章列表 -->
+        {% if article_list %}
+      {% autopaginate article_list 10 %}
+        {% for post in article_list %}
+            {% include 'includes/home_article.html' %}
+         {% endfor %}
+      <div class="text-center text-danger" style=" margin-right: auto;margin-left: auto">{% paginate %}</div>
+      {% endif %}
+            <!--分页 -->
+
+
+        </div>
+       </div>
+    <!-- 右边的widgets -->
+    <div id="it_side" class="col-md-3 col-lg-3  col-sm-3 hidden-xs">
+        <hr/>
+       {% include 'includes/it_label.html' %}
+        <hr/>
+        {% include 'includes/it_hot.html' %}
+    </div>
+</div>
+    </div>
+{% endblock %}

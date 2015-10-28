@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <!--手机html -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.css' %}"/>
+   <link rel="stylesheet" type="text/css" href="{% static 'css/common.css' %}" />
+   <script language="JavaScript" src="{% static 'jquery/jquery-2.1.4.min.js' %}"></script>
+ <script language="JavaScript" src="{% static 'jquery/jquery.cookie.js' %}"></script>
+   <script language="JavaScript" src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    {% block css%} {% endblock%}
+</head>
+<body id="base_body">
+    <div>
+    <!-- 导航栏 -->
+    {% include "includes/nav.html"%}
+    </div>
+    <br/>
+    <!-- 文章列表 与 侧边的东西 -->
+    <div id="main">
+        <div id="content">
+            {%block main%} {% endblock %}
+        </div>
+
+    </div>
+    <footer>
+          <div class="row">
+            <div class="container footer_a col-md-11 col-sm-11 col-lg-11">
+              <p class="text-center"> <a href="http://www.miitbeian.gov.cn/">鲁ICP备15036121号</a>&nbsp;&nbsp;基于django1.8&nbsp;bootstrap3&nbsp;mysql
+               </p>
+            </div>
+            <div class="col-md-1 col-lg-1 col-sm-1 footer_manager">
+              <a href="/admin/">管理</a>
+            </div>
+          </div>
+    </footer>
+
+</body>
+
+
+<script type="text/javascript" src="{% static 'js/base.js' %}"></script>
+{% block js%}{% endblock%}
+
+</html>

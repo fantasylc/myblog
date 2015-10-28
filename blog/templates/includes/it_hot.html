@@ -1,0 +1,16 @@
+<div class="row well" id="it_hot">
+   <div id="it_hot_title">
+        热门排行
+    </div>
+    {% for host_article in host_article_list %}
+     <a href="/itblog/article/{{ host_article.id }}/">
+        <div class="col-lg-10 col-md-10 col-sm-10 it_hot">
+        {{ forloop.counter }}:&nbsp;{{ host_article.title }}
+
+        </div>
+     </a>
+        <span draggable="true" class="float-right label it_hot_viewtimes">{{ host_article.view_times }}</span>
+     <div class="div_hr"></div>
+
+    {% endfor %}
+</div>

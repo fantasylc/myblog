@@ -1,0 +1,14 @@
+
+<div class="row well" id="it_label">
+   <div id="it_label_title">
+        博客分类
+    </div>
+    {% for category in category_list %}
+    <a href="/category/{{ category.name }}/">
+        <div class="col-lg-5 col-md-5 col-sm-5 it_label it_label_{{ forloop.counter }} btn">
+        {{ category.name }}
+        </div>
+        </a>
+    {% endfor %}
+
+</div>
