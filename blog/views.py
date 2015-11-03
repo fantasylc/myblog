@@ -5,7 +5,7 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 
 def home(request):
     context = {}
-    return render(request, 'home.html', context)
+    return render(request, 'index.html', context)
 
 
 def itblog(request):

@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'o%ux2y225=l%%vot_oy7%)s0hslx(*=mt!f!q(61^6=$c&no=3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -89,9 +89,9 @@ DATABASES = {
         #'ENGINE': 'django.db.backends.sqlite3',
         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'ENGINE':'django.db.backends.mysql',
-        'NAME':'',
-        'USER':'',
-        'PASSWORD':'',
+        'NAME':'blogdb',
+        'USER':'root',
+        'PASSWORD':'3192729824',
         'HOST':'127.0.0.1',
         'PORT':3306,
     }
@@ -130,7 +130,7 @@ LOGGING = {
                 'level': 'INFO',
                 'class': 'logging.FileHandler',
                 'formatter': 'verbose',
-                'filename': 'log/debug.log',
+                'filename': './log/debug.log',
                 'mode': 'a',
                 },
             'mail_admins': {
@@ -177,14 +177,19 @@ AUTH_USER_MODEL = 'user_auth.User'
 PAGE_NUM = 10
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
-
+#static files
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR,'collected_static')
+
+#media files
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.163.com'
 EMAIL_PORT = 25
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST_USER = 'liuchao_824@163.com'
+EMAIL_HOST_PASSWORD = 'akinnnuyohqzcmlx'
 EMAIL_SUBJECT_PREFIX = 'superliu.me'
 EMAIL_USE_TLS = True
 

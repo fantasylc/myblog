@@ -1,0 +1,16 @@
+body{
+        background:url("../img/bg.png");
+        background-position: 0 0;
+    }
+
+.article-page{
+        margin-top: 5%;
+        word-break: break-all;
+}
+
+
+
+.article-content{
+        font-size: 15px;
+        line-height: 18px;
+}

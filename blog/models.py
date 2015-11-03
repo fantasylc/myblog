@@ -82,7 +82,9 @@ class Comment(models.Model):
         verbose_name_plural = verbose_name = "评论"
         ordering = ['-create_time']
         app_label = string_with_title('blog', '博客管理')
-
+    
+    def __str__(self):
+        return self.content[0:20]
 
 class Carousel(models.Model):
     title = models.CharField(max_length=100, verbose_name='标题')
@@ -95,3 +97,6 @@ class Carousel(models.Model):
         verbose_name_plural = verbose_name = '轮播'
         ordering = ['-create_time']
         app_label = string_with_title('blog', '博客管理')
+
+    def __str__(self):
+        return self.title

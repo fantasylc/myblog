@@ -2,8 +2,7 @@
 html { overflow: scroll; }
 
 body {
-    padding-right: 20px;
-    padding-left: 10px;
+    
     color:#6B6B6B;
     font-size:12px;
 
@@ -70,7 +69,7 @@ footer {
 
 #it_main {
     position: relative;
-    top: -25px;
+    top: -30px;
     padding-right: 1px;
     padding-bottom: 10px;
 }
@@ -157,9 +156,10 @@ footer {
 
 .it_hot{
     height: 30px;
-    margin: 2% 0 2% -5%;
+    margin: 2% -5% 2% -6%;
     text-align: left;
     padding-top: 1.8%;
+    padding-right:-4%;
     font-size: 14px;
     word-break: break-all;
 

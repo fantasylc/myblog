@@ -24,11 +24,11 @@
             <hr/>
             <!--首页文章列表 -->
         {% if article_list %}
-      {% autopaginate article_list 10 %}
+      {% autopaginate article_list 8%}
         {% for post in article_list %}
             {% include 'includes/home_article.html' %}
          {% endfor %}
-      <div class="text-center text-danger" style=" margin-right: auto;margin-left: auto">{% paginate %}</div>
+      <div class="text-center" style="font-size:22px;">{% paginate %}</div>
       {% endif %}
             <!--分页 -->
 

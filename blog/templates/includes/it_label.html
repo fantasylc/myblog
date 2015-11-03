@@ -6,7 +6,7 @@
     {% for category in category_list %}
     <a href="/category/{{ category.name }}/">
         <div class="col-lg-5 col-md-5 col-sm-5 it_label it_label_{{ forloop.counter }} btn">
-        {{ category.name }}
+       {{ category.name }}<sup>{{category.article_set.all | length}}</sup>
         </div>
         </a>
     {% endfor %}

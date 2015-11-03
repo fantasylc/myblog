@@ -17,7 +17,8 @@ def user_login(request):
             user = authenticate(username=username, password=password)
             if user:
                 login(request,user)
-                return render(request,'home.html')
+                return HttpResponseRedirect('/itblog/')
+    request.session['login_from'] = request.META.get('HTTP_REFERER','/')
     form=LoginForm(request)
     context['form'] = form
     return render(request, 'user_auth/login.html', context)
@@ -29,7 +30,7 @@ def user_logout(request):
 
     else:
         logout(request)
-        return render(request, 'home.html')
+        return HttpResponseRedirect('/itblog/')
 
 
 def register(request):
@@ -47,16 +48,18 @@ def register(request):
                 "请牢记您的信息:\n"+\
                 "用户名:%s"%(username)+"\n"+\
                 "邮箱:%s"%(email)+"\n"
-            from_email = 'liuchao_824@163.com'
+            from_email = ''
+            send_mail(title,message,from_email,[email])
             try:
-                send_mail(title, message, from_email, ['1092640073@qq.com'])
+                send_mail(title, message, from_email, [email])
             except Exception as e:
+                print(e)
                 return HttpResponse("发送邮件失败!\n注册失败", status=500)
 
             new_user = form.save()
             user = authenticate(username = username,password = password2)
             login(request,user)
-
+            return HttpResponseRedirect('/itblog/')
         else:
             context['form'] = form
             return render(request, 'user_auth/register.html',context)

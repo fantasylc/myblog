@@ -20,4 +20,5 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'', include('blog.urls', namespace='blog')),
     url(r'user_auth/', include('user_auth.urls', namespace='user_auth')),
+    url('music/', include('music.urls', namespace = 'music')),
 ]
