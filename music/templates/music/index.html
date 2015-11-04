@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load pagination_tags %}
+
+{% block css %}
+    <title>音乐首页</title>
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+    <div class="col-md-8 col-sm-8 col-lg-8 col-md-offset-2 col-lg-offset-2 col-sm-offset-2">
+              {% if song_list %}
+      {% autopaginate song_list 20%}
+        {% for song in song_list %}
+            {% include 'music/includes/index_song.html' %}
+         {% endfor %}
+      <div class="text-center" style="font-size:22px;">{% paginate %}</div>
+      {% endif %}
+    </div>
+    </div>
+{% endblock %}

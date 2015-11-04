@@ -1,0 +1,15 @@
+<div>
+    <h3>{{ song.name }}</h3>
+    <div>
+        <span><span class="glyphicon glyphicon-user"></span>{{ song.author }}</span>
+        <span>&nbsp;&nbsp;</span>
+        <span><span class="glyphicon glyphicon-credit-card"></span>{{ song.zhuanji }}</span>
+    </div>
+    <div>
+
+                    {% autoescape off%}
+                   {{ song.url }}
+                    {% endautoescape %}
+
+    </div>
+</div>

@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'pagination',
     'blog',
+    'music',
     'user_auth',
 )
 
@@ -59,7 +60,9 @@ ROOT_URLCONF = 'myblog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'user_auth/templates/'),os.path.join(BASE_DIR, 'blog/templates/')],
+        'DIRS': [os.path.join(BASE_DIR, 'user_auth/templates/'),
+                 os.path.join(BASE_DIR, 'blog/templates/'),
+                 os.path.join(BASE_DIR, 'music/templates/')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -91,7 +94,7 @@ DATABASES = {
         'ENGINE':'django.db.backends.mysql',
         'NAME':'blogdb',
         'USER':'root',
-        'PASSWORD':'',
+        'PASSWORD':'2898827027',
         'HOST':'127.0.0.1',
         'PORT':3306,
     }
