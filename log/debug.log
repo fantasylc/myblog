@@ -4518,3 +4518,1061 @@ Traceback (most recent call last):
   File "/usr/local/lib/python3.4/dist-packages/django/contrib/sessions/backends/base.py", line 48, in __getitem__
     return self._session[key]
 KeyError: 'login_from'
+[2015-11-04 10:57:38,488] [ERROR] base : Internal Server Error: /music/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/cursors.py", line 146, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/cursors.py", line 296, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 781, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 942, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 1138, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 906, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 367, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/err.py", line 120, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/err.py", line 112, in _check_mysql_exception
+    raise errorclass(errno, errorvalue)
+pymysql.err.ProgrammingError: (1146, "Table 'blogdb.music_song' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./music/views.py", line 10, in index
+    return render(request, 'music/index.html', context)
+  File "/usr/local/lib/python3.4/dist-packages/django/shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/backends/django.py", line 74, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 209, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 917, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 917, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 917, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/defaulttags.py", line 328, in render
+    if match:
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/query.py", line 166, in __bool__
+    self._fetch_all()
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/query.py", line 965, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/query.py", line 238, in iterator
+    results = compiler.execute_sql()
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/sql/compiler.py", line 840, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/utils.py", line 97, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/local/lib/python3.4/dist-packages/django/utils/six.py", line 658, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/cursors.py", line 146, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/cursors.py", line 296, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 781, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 942, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 1138, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 906, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 367, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/err.py", line 120, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/err.py", line 112, in _check_mysql_exception
+    raise errorclass(errno, errorvalue)
+django.db.utils.ProgrammingError: (1146, "Table 'blogdb.music_song' doesn't exist")
+[2015-11-04 10:57:38,488] [ERROR] base : Internal Server Error: /music/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/cursors.py", line 146, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/cursors.py", line 296, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 781, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 942, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 1138, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 906, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 367, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/err.py", line 120, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/err.py", line 112, in _check_mysql_exception
+    raise errorclass(errno, errorvalue)
+pymysql.err.ProgrammingError: (1146, "Table 'blogdb.music_song' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./music/views.py", line 10, in index
+    return render(request, 'music/index.html', context)
+  File "/usr/local/lib/python3.4/dist-packages/django/shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/backends/django.py", line 74, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 209, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 917, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 917, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 917, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/defaulttags.py", line 328, in render
+    if match:
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/query.py", line 166, in __bool__
+    self._fetch_all()
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/query.py", line 965, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/query.py", line 238, in iterator
+    results = compiler.execute_sql()
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/sql/compiler.py", line 840, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/utils.py", line 97, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/local/lib/python3.4/dist-packages/django/utils/six.py", line 658, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/cursors.py", line 146, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/cursors.py", line 296, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 781, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 942, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 1138, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 906, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 367, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/err.py", line 120, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/err.py", line 112, in _check_mysql_exception
+    raise errorclass(errno, errorvalue)
+django.db.utils.ProgrammingError: (1146, "Table 'blogdb.music_song' doesn't exist")
+[2015-11-04 10:57:48,437] [ERROR] base : Internal Server Error: /music/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/cursors.py", line 146, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/cursors.py", line 296, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 781, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 942, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 1138, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 906, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 367, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/err.py", line 120, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/err.py", line 112, in _check_mysql_exception
+    raise errorclass(errno, errorvalue)
+pymysql.err.ProgrammingError: (1146, "Table 'blogdb.music_song' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./music/views.py", line 10, in index
+    return render(request, 'music/index.html', context)
+  File "/usr/local/lib/python3.4/dist-packages/django/shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/backends/django.py", line 74, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 209, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 917, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 917, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 917, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/defaulttags.py", line 328, in render
+    if match:
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/query.py", line 166, in __bool__
+    self._fetch_all()
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/query.py", line 965, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/query.py", line 238, in iterator
+    results = compiler.execute_sql()
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/sql/compiler.py", line 840, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/utils.py", line 97, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/local/lib/python3.4/dist-packages/django/utils/six.py", line 658, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/cursors.py", line 146, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/cursors.py", line 296, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 781, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 942, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 1138, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 906, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 367, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/err.py", line 120, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/err.py", line 112, in _check_mysql_exception
+    raise errorclass(errno, errorvalue)
+django.db.utils.ProgrammingError: (1146, "Table 'blogdb.music_song' doesn't exist")
+[2015-11-04 10:57:48,437] [ERROR] base : Internal Server Error: /music/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/cursors.py", line 146, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/cursors.py", line 296, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 781, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 942, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 1138, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 906, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 367, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/err.py", line 120, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/err.py", line 112, in _check_mysql_exception
+    raise errorclass(errno, errorvalue)
+pymysql.err.ProgrammingError: (1146, "Table 'blogdb.music_song' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./music/views.py", line 10, in index
+    return render(request, 'music/index.html', context)
+  File "/usr/local/lib/python3.4/dist-packages/django/shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/backends/django.py", line 74, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 209, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 917, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 917, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 917, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/defaulttags.py", line 328, in render
+    if match:
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/query.py", line 166, in __bool__
+    self._fetch_all()
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/query.py", line 965, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/query.py", line 238, in iterator
+    results = compiler.execute_sql()
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/sql/compiler.py", line 840, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/utils.py", line 97, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/local/lib/python3.4/dist-packages/django/utils/six.py", line 658, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/cursors.py", line 146, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/cursors.py", line 296, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 781, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 942, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 1138, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 906, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 367, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/err.py", line 120, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/err.py", line 112, in _check_mysql_exception
+    raise errorclass(errno, errorvalue)
+django.db.utils.ProgrammingError: (1146, "Table 'blogdb.music_song' doesn't exist")
+[2015-11-04 11:03:37,449] [ERROR] base : Internal Server Error: /music/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/cursors.py", line 146, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/cursors.py", line 296, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 781, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 942, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 1138, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 906, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 367, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/err.py", line 120, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/err.py", line 112, in _check_mysql_exception
+    raise errorclass(errno, errorvalue)
+pymysql.err.ProgrammingError: (1146, "Table 'blogdb.music_song' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./music/views.py", line 10, in index
+    return render(request, 'music/index.html', context)
+  File "/usr/local/lib/python3.4/dist-packages/django/shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/backends/django.py", line 74, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 209, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/defaulttags.py", line 328, in render
+    if match:
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/query.py", line 166, in __bool__
+    self._fetch_all()
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/query.py", line 965, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/query.py", line 238, in iterator
+    results = compiler.execute_sql()
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/sql/compiler.py", line 840, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/utils.py", line 97, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/local/lib/python3.4/dist-packages/django/utils/six.py", line 658, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/cursors.py", line 146, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/cursors.py", line 296, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 781, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 942, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 1138, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 906, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 367, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/err.py", line 120, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/err.py", line 112, in _check_mysql_exception
+    raise errorclass(errno, errorvalue)
+django.db.utils.ProgrammingError: (1146, "Table 'blogdb.music_song' doesn't exist")
+[2015-11-04 11:03:37,449] [ERROR] base : Internal Server Error: /music/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/cursors.py", line 146, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/cursors.py", line 296, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 781, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 942, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 1138, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 906, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 367, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/err.py", line 120, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/err.py", line 112, in _check_mysql_exception
+    raise errorclass(errno, errorvalue)
+pymysql.err.ProgrammingError: (1146, "Table 'blogdb.music_song' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./music/views.py", line 10, in index
+    return render(request, 'music/index.html', context)
+  File "/usr/local/lib/python3.4/dist-packages/django/shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/backends/django.py", line 74, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 209, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/defaulttags.py", line 328, in render
+    if match:
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/query.py", line 166, in __bool__
+    self._fetch_all()
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/query.py", line 965, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/query.py", line 238, in iterator
+    results = compiler.execute_sql()
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/sql/compiler.py", line 840, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/backends/utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/utils.py", line 97, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/usr/local/lib/python3.4/dist-packages/django/utils/six.py", line 658, in reraise
+    raise value.with_traceback(tb)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/backends/utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/cursors.py", line 146, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/cursors.py", line 296, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 781, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 942, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 1138, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 906, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/connections.py", line 367, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/err.py", line 120, in raise_mysql_exception
+    _check_mysql_exception(errinfo)
+  File "/usr/local/lib/python3.4/dist-packages/pymysql/err.py", line 112, in _check_mysql_exception
+    raise errorclass(errno, errorvalue)
+django.db.utils.ProgrammingError: (1146, "Table 'blogdb.music_song' doesn't exist")
+[2015-11-04 11:33:55,231] [ERROR] base : Internal Server Error: /music/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 337, in parse
+    compile_func = self.tags[command]
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./music/views.py", line 10, in index
+    return render(request, 'music/index.html', context)
+  File "/usr/local/lib/python3.4/dist-packages/django/shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader.py", line 98, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader.py", line 35, in get_template
+    return engine.get_template(template_name, dirs)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/backends/django.py", line 30, in get_template
+    return Template(self.engine.get_template(template_name, dirs))
+  File "/usr/local/lib/python3.4/dist-packages/django/template/engine.py", line 167, in get_template
+    template, origin = self.find_template(template_name, dirs)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/engine.py", line 141, in find_template
+    source, display_name = loader(name, dirs)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loaders/base.py", line 13, in __call__
+    return self.load_template(template_name, template_dirs)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loaders/base.py", line 23, in load_template
+    template = Template(source, origin, template_name, self.engine)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 190, in __init__
+    self.nodelist = engine.compile_string(template_string, origin)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/engine.py", line 261, in compile_string
+    return parser.parse()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 341, in parse
+    compiled_result = compile_func(self, token)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader_tags.py", line 210, in do_extends
+    nodelist = parser.parse()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 341, in parse
+    compiled_result = compile_func(self, token)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader_tags.py", line 184, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 339, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 394, in invalid_block_tag
+    (command, get_text_list(["'%s'" % p for p in parse_until])))
+django.template.base.TemplateSyntaxError: Invalid block tag: 'static', expected 'endblock'
+[2015-11-04 11:33:55,231] [ERROR] base : Internal Server Error: /music/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 337, in parse
+    compile_func = self.tags[command]
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "./music/views.py", line 10, in index
+    return render(request, 'music/index.html', context)
+  File "/usr/local/lib/python3.4/dist-packages/django/shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader.py", line 98, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader.py", line 35, in get_template
+    return engine.get_template(template_name, dirs)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/backends/django.py", line 30, in get_template
+    return Template(self.engine.get_template(template_name, dirs))
+  File "/usr/local/lib/python3.4/dist-packages/django/template/engine.py", line 167, in get_template
+    template, origin = self.find_template(template_name, dirs)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/engine.py", line 141, in find_template
+    source, display_name = loader(name, dirs)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loaders/base.py", line 13, in __call__
+    return self.load_template(template_name, template_dirs)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loaders/base.py", line 23, in load_template
+    template = Template(source, origin, template_name, self.engine)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 190, in __init__
+    self.nodelist = engine.compile_string(template_string, origin)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/engine.py", line 261, in compile_string
+    return parser.parse()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 341, in parse
+    compiled_result = compile_func(self, token)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader_tags.py", line 210, in do_extends
+    nodelist = parser.parse()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 341, in parse
+    compiled_result = compile_func(self, token)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader_tags.py", line 184, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 339, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 394, in invalid_block_tag
+    (command, get_text_list(["'%s'" % p for p in parse_until])))
+django.template.base.TemplateSyntaxError: Invalid block tag: 'static', expected 'endblock'
+[2015-11-09 21:39:55,215] [ERROR] base : Internal Server Error: /about/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 119, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/urlresolvers.py", line 367, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/urlresolvers.py", line 367, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/urlresolvers.py", line 239, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/urlresolvers.py", line 246, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/usr/lib/python3.4/functools.py", line 448, in wrapper
+    result = user_function(*args, **kwds)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/urlresolvers.py", line 105, in get_callable
+    mod = import_module(mod_name)
+  File "/usr/lib/python3.4/importlib/__init__.py", line 109, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 2254, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 2237, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 2226, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 1200, in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 1129, in _exec
+  File "<frozen importlib._bootstrap>", line 1467, in exec_module
+  File "<frozen importlib._bootstrap>", line 1572, in get_code
+  File "<frozen importlib._bootstrap>", line 1532, in source_to_code
+  File "<frozen importlib._bootstrap>", line 321, in _call_with_frames_removed
+  File "./blog/views.py", line 45
+    reture render(request,'about.html',context)
+                ^
+SyntaxError: invalid syntax
+[2015-11-09 21:39:55,215] [ERROR] base : Internal Server Error: /about/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 119, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/urlresolvers.py", line 367, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/urlresolvers.py", line 367, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/urlresolvers.py", line 239, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/urlresolvers.py", line 246, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/usr/lib/python3.4/functools.py", line 448, in wrapper
+    result = user_function(*args, **kwds)
+  File "/usr/local/lib/python3.4/dist-packages/django/core/urlresolvers.py", line 105, in get_callable
+    mod = import_module(mod_name)
+  File "/usr/lib/python3.4/importlib/__init__.py", line 109, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 2254, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 2237, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 2226, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 1200, in _load_unlocked
+  File "<frozen importlib._bootstrap>", line 1129, in _exec
+  File "<frozen importlib._bootstrap>", line 1467, in exec_module
+  File "<frozen importlib._bootstrap>", line 1572, in get_code
+  File "<frozen importlib._bootstrap>", line 1532, in source_to_code
+  File "<frozen importlib._bootstrap>", line 321, in _call_with_frames_removed
+  File "./blog/views.py", line 45
+    reture render(request,'about.html',context)
+                ^
+SyntaxError: invalid syntax
+[2015-11-10 00:18:42,340] [ERROR] base : Internal Server Error: /itblog/article/13/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.4/dist-packages/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "./blog/views.py", line 41, in article
+    return render(request, 'itblog/article.html', context)
+  File "/usr/local/lib/python3.4/dist-packages/django/shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/backends/django.py", line 74, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 209, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader_tags.py", line 151, in render
+    template = context.template.engine.get_template(template)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/engine.py", line 167, in get_template
+    template, origin = self.find_template(template_name, dirs)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/engine.py", line 141, in find_template
+    source, display_name = loader(name, dirs)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loaders/base.py", line 13, in __call__
+    return self.load_template(template_name, template_dirs)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loaders/base.py", line 23, in load_template
+    template = Template(source, origin, template_name, self.engine)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 190, in __init__
+    self.nodelist = engine.compile_string(template_string, origin)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/engine.py", line 261, in compile_string
+    return parser.parse()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 317, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 423, in compile_filter
+    return FilterExpression(token, self)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 639, in __init__
+    "from '%s'" % (token[upto:], token))
+django.template.base.TemplateSyntaxError: Could not parse the remainder: '()' from 'request.get_full_path()'
+[2015-11-10 00:18:42,340] [ERROR] base : Internal Server Error: /itblog/article/13/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.4/dist-packages/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "./blog/views.py", line 41, in article
+    return render(request, 'itblog/article.html', context)
+  File "/usr/local/lib/python3.4/dist-packages/django/shortcuts.py", line 67, in render
+    template_name, context, request=request, using=using)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader.py", line 99, in render_to_string
+    return template.render(context, request)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/backends/django.py", line 74, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 209, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader_tags.py", line 135, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 201, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 903, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/debug.py", line 79, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loader_tags.py", line 151, in render
+    template = context.template.engine.get_template(template)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/engine.py", line 167, in get_template
+    template, origin = self.find_template(template_name, dirs)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/engine.py", line 141, in find_template
+    source, display_name = loader(name, dirs)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loaders/base.py", line 13, in __call__
+    return self.load_template(template_name, template_dirs)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/loaders/base.py", line 23, in load_template
+    template = Template(source, origin, template_name, self.engine)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 190, in __init__
+    self.nodelist = engine.compile_string(template_string, origin)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/engine.py", line 261, in compile_string
+    return parser.parse()
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 317, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 423, in compile_filter
+    return FilterExpression(token, self)
+  File "/usr/local/lib/python3.4/dist-packages/django/template/base.py", line 639, in __init__
+    "from '%s'" % (token[upto:], token))
+django.template.base.TemplateSyntaxError: Could not parse the remainder: '()' from 'request.get_full_path()'
+[2015-11-12 13:20:26,596] [ERROR] base : Internal Server Error: /itblog/article/14/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.4/dist-packages/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "./blog/views.py", line 34, in article
+    blog = Article.objects.filter(status=0).get(pk=id)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/query.py", line 334, in get
+    self.model._meta.object_name
+blog.models.DoesNotExist: Article matching query does not exist.
+[2015-11-12 13:20:26,596] [ERROR] base : Internal Server Error: /itblog/article/14/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.4/dist-packages/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "./blog/views.py", line 34, in article
+    blog = Article.objects.filter(status=0).get(pk=id)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/query.py", line 334, in get
+    self.model._meta.object_name
+blog.models.DoesNotExist: Article matching query does not exist.
+[2015-11-12 19:21:52,215] [ERROR] base : Internal Server Error: /itblog/article/13/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.4/dist-packages/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "./blog/views.py", line 40, in article
+    context['article.content'] = markdown(blod.content,['codehilite'])
+NameError: name 'blod' is not defined
+[2015-11-12 19:21:52,215] [ERROR] base : Internal Server Error: /itblog/article/13/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.4/dist-packages/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "./blog/views.py", line 40, in article
+    context['article.content'] = markdown(blod.content,['codehilite'])
+NameError: name 'blod' is not defined
+[2015-11-12 19:22:14,313] [ERROR] base : Internal Server Error: /itblog/article/13/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.4/dist-packages/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "./blog/views.py", line 40, in article
+    context['article.content'] = markdown(blod.content,['codehilite'])
+NameError: name 'blod' is not defined
+[2015-11-12 19:22:14,313] [ERROR] base : Internal Server Error: /itblog/article/13/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.4/dist-packages/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "./blog/views.py", line 40, in article
+    context['article.content'] = markdown(blod.content,['codehilite'])
+NameError: name 'blod' is not defined
+[2015-11-12 19:23:18,298] [ERROR] base : Internal Server Error: /itblog/article/13/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.4/dist-packages/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "./blog/views.py", line 40, in article
+    context['article.content'] = markdown(blod.content,['codehilite'])
+NameError: name 'blod' is not defined
+[2015-11-12 19:23:18,298] [ERROR] base : Internal Server Error: /itblog/article/13/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.4/dist-packages/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "./blog/views.py", line 40, in article
+    context['article.content'] = markdown(blod.content,['codehilite'])
+NameError: name 'blod' is not defined
+[2015-11-12 20:04:14,633] [ERROR] base : Internal Server Error: /itblog/article/14/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.4/dist-packages/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "./blog/views.py", line 34, in article
+    blog = Article.objects.filter(status=0).get(pk=id)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/query.py", line 334, in get
+    self.model._meta.object_name
+blog.models.DoesNotExist: Article matching query does not exist.
+[2015-11-12 20:04:14,633] [ERROR] base : Internal Server Error: /itblog/article/14/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.4/dist-packages/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "./blog/views.py", line 34, in article
+    blog = Article.objects.filter(status=0).get(pk=id)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/query.py", line 334, in get
+    self.model._meta.object_name
+blog.models.DoesNotExist: Article matching query does not exist.
+[2015-11-12 20:04:17,989] [ERROR] base : Internal Server Error: /itblog/article/14/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.4/dist-packages/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "./blog/views.py", line 34, in article
+    blog = Article.objects.filter(status=0).get(pk=id)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/query.py", line 334, in get
+    self.model._meta.object_name
+blog.models.DoesNotExist: Article matching query does not exist.
+[2015-11-12 20:04:17,989] [ERROR] base : Internal Server Error: /itblog/article/14/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.4/dist-packages/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "./blog/views.py", line 34, in article
+    blog = Article.objects.filter(status=0).get(pk=id)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/query.py", line 334, in get
+    self.model._meta.object_name
+blog.models.DoesNotExist: Article matching query does not exist.
+[2015-11-13 00:00:12,866] [ERROR] base : Internal Server Error: /itblog/article/14/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.4/dist-packages/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "./blog/views.py", line 34, in article
+    blog = Article.objects.filter(status=0).get(pk=id)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/query.py", line 334, in get
+    self.model._meta.object_name
+blog.models.DoesNotExist: Article matching query does not exist.
+[2015-11-13 00:00:12,866] [ERROR] base : Internal Server Error: /itblog/article/14/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.4/dist-packages/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "./blog/views.py", line 34, in article
+    blog = Article.objects.filter(status=0).get(pk=id)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/query.py", line 334, in get
+    self.model._meta.object_name
+blog.models.DoesNotExist: Article matching query does not exist.
+[2015-11-13 00:00:20,740] [ERROR] base : Internal Server Error: /itblog/article/14/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.4/dist-packages/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "./blog/views.py", line 34, in article
+    blog = Article.objects.filter(status=0).get(pk=id)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/query.py", line 334, in get
+    self.model._meta.object_name
+blog.models.DoesNotExist: Article matching query does not exist.
+[2015-11-13 00:00:20,740] [ERROR] base : Internal Server Error: /itblog/article/14/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.4/dist-packages/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "./blog/views.py", line 34, in article
+    blog = Article.objects.filter(status=0).get(pk=id)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/query.py", line 334, in get
+    self.model._meta.object_name
+blog.models.DoesNotExist: Article matching query does not exist.
+[2015-11-13 00:00:21,857] [ERROR] base : Internal Server Error: /itblog/article/14/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.4/dist-packages/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "./blog/views.py", line 34, in article
+    blog = Article.objects.filter(status=0).get(pk=id)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/query.py", line 334, in get
+    self.model._meta.object_name
+blog.models.DoesNotExist: Article matching query does not exist.
+[2015-11-13 00:00:21,857] [ERROR] base : Internal Server Error: /itblog/article/14/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.4/dist-packages/django/core/handlers/base.py", line 132, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.4/dist-packages/django/utils/decorators.py", line 110, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "./blog/views.py", line 34, in article
+    blog = Article.objects.filter(status=0).get(pk=id)
+  File "/usr/local/lib/python3.4/dist-packages/django/db/models/query.py", line 334, in get
+    self.model._meta.object_name
+blog.models.DoesNotExist: Article matching query does not exist.

@@ -17,8 +17,7 @@ def user_login(request):
             user = authenticate(username=username, password=password)
             if user:
                 login(request,user)
-                return HttpResponseRedirect('/itblog/')
-    request.session['login_from'] = request.META.get('HTTP_REFERER','/')
+                return HttpResponseRedirect(request.REQUEST.get('next',''))
     form=LoginForm(request)
     context['form'] = form
     return render(request, 'user_auth/login.html', context)
@@ -30,7 +29,8 @@ def user_logout(request):
 
     else:
         logout(request)
-        return HttpResponseRedirect('/itblog/')
+        return HttpResponseRedirect(request.REQUEST.get('next',''))
+
 
 
 def register(request):
@@ -59,7 +59,7 @@ def register(request):
             new_user = form.save()
             user = authenticate(username = username,password = password2)
             login(request,user)
-            return HttpResponseRedirect('/itblog/')
+            return HttpResponseRedirect(request.REQUEST.get('next',''))
         else:
             context['form'] = form
             return render(request, 'user_auth/register.html',context)

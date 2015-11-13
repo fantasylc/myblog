@@ -3,15 +3,17 @@ html { overflow: scroll; }
 
 body {
     
-    color:#6B6B6B;
+    color:#454545;
     font-size:12px;
-
 }
 
 header {
     font-size:14px;
 }
 
+p{
+  line-height:1.6;
+}
 /*使footer置于底部*/
 body,html {
     padding: 0;
@@ -28,13 +30,18 @@ footer {
     bottom: -7px;
     height: 35px;
     width: 100%;
-    background:#333333;
+    background-color:#333333;
 }
 .footer_a{
+    font-color:#aaaaaa;
     padding-top: 7px;
     font-size: 14px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.footer_a >p{
+   color:#aaaaaa;
 }
 .footer_a >p >a{
     color: #269abc;
@@ -42,6 +49,7 @@ footer {
 .footer_a >p >a:hover{
     color: #FF4400;
     text-decoration: none;
+
 }
 
 .footer_manager{
@@ -234,7 +242,7 @@ padding-top: 2px;
 	margin-right: 0;
 	margin-top: 30px;
 }
-.home_arti_title >h2
+.home_arti_title >h3
 {
 	margin-top:-5px;
     margin-bottom:0;
@@ -245,11 +253,11 @@ padding-top: 2px;
     overflow: hidden;
     white-space: nowrap;
 }
-.home_arti_title >h2 >a{
+.home_arti_title >h3 >a{
 	color: #555555;
 }
 
-.home_arti_title >h2 >a:hover
+.home_arti_title >h3 >a:hover
 {
 	color: #ff6611;
 	text-decoration: none;
@@ -278,13 +286,14 @@ padding-top: 2px;
 	margin-left: 20px;
 	margin-bottom: 3px;
 	margin-top: 3px;
+        margin-right:10px;
 }
 
 
 .home_arti_sum
 {
 	margin-top: 0;
-    margin-left: 5px;
+    margin-left: 10px;
 	word-break: break-all;
 }
 .div_hr
@@ -316,3 +325,12 @@ padding-top: 2px;
         background-color: #00EE44;
 }
 
+.pagination a:hover{
+    color:#ff6600;
+    text-decoration:none;
+}
+
+.next:hover{
+    color:#ff6600;
+    text-decoration:none;
+}

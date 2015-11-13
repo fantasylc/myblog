@@ -82,7 +82,7 @@ class PasswordResetForm(forms.Form):
 
 class LoginForm(forms.Form):
     username = forms.CharField(label='用户名', max_length=30, widget=forms.TextInput(
-        attrs={'class': 'form-control', 'style': 'width:20', 'placeholder': '用户名', 'required': '', 'autofocus': ''}
+        attrs={'class': 'form-control', 'placeholder': '用户名', 'required': '', 'autofocus': ''}
     ), error_messages={'required': "用户名不能为空"},
                                )
 

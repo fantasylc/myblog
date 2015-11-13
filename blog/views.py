@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import *
 from django.http import HttpResponse
 from django.views.decorators.csrf import ensure_csrf_cookie
-
+from markdown import markdown
 def home(request):
     context = {}
     return render(request, 'index.html', context)
@@ -35,11 +35,15 @@ def article(request, id = None):
     comment_list = blog.comment_set.all()
     blog.view_times += 1
     blog.save()
+    blog.content = markdown(blog.content,['codehilite'])
     context['id'] = id
     context['article'] = blog
     context['comment_list'] = comment_list
     return render(request, 'itblog/article.html', context)
 
+def about(request):
+    context = {}
+    return render(request,'about.html',context)
 
 def category(request, name=None):
     context = {}

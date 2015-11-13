@@ -5,6 +5,8 @@ from .models import Song
 
 def index(request):
     context = {}
-    song_list = Song.objects.all()
+    song_istop = Song.objects.filter(is_top=True)
+    song_list = Song.objects.filter(is_top=False)
     context['song_list'] = song_list
+    context['song_istop'] = song_istop
     return render(request, 'music/index.html', context)

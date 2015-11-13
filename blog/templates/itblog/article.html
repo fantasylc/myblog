@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 {% load staticfiles %}
-{% load dj_markdown %}
 {% block css %}
     <title>{{ article.title }}</title>
+    <meta name="keywords" content="{% for tag in article.get_tags%}{{tag}},{% endfor %}"/>
+    <meta  name="description" content="{{article.summary}}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/monokai.css' %}">
    <link rel="stylesheet" type="text/css" href="{% static 'css/itarticle.css' %}" />
 {%  endblock%}
@@ -44,13 +45,12 @@
            </div>
            <div class="div_hr" style = "margin-bottom: 20px"></div>
                 <div class="article-content">
-                    {% autoescape off%}
-                   <p> {{article.content | dj_markdown}}</p>
-                    {% endautoescape %}
+                  
+                   <p> {{article.content | safe}}</p>
                 </div>
            </div>
     </div>
-
+    {% include "./includes/share.html" %}
     {% include "./includes/comment.html" %}
     </div>
     </div>

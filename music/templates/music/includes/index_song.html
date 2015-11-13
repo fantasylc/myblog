@@ -1,9 +1,13 @@
-<div>
-    <h3>{{ song.name }}</h3>
+<div class="music_list">
+    <h4 style='color:#ff6600'>{{ song.name }}</h4>
     <div>
-        <span><span class="glyphicon glyphicon-user"></span>{{ song.author }}</span>
+        <span><span class="glyphicon glyphicon-user"></span>&nbsp;{{ song.author }}</span>
         <span>&nbsp;&nbsp;</span>
-        <span><span class="glyphicon glyphicon-credit-card"></span>{{ song.zhuanji }}</span>
+        <span><span class="glyphicon glyphicon-credit-card"></span>&nbsp;{{ song.zhuanji }}</span>
+        {% if song.is_top %}
+        <span>&nbsp;&nbsp;</span>
+        <span><span class="glyphicon glyphicon-plane"></span>&nbsp;<font color='#ff2200'>Top</font></span>
+        {% endif %}
     </div>
     <div>
 
@@ -12,4 +16,5 @@
                     {% endautoescape %}
 
     </div>
+    <div class="div_hr"></div>
 </div>
