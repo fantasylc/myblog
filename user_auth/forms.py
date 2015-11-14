@@ -3,6 +3,7 @@ from user_auth.models import User
 from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import send_mail
 from django.contrib.auth import authenticate
+from captcha.fields import CaptchaField
 
 
 class UserCreationForm(forms.ModelForm):
@@ -18,8 +19,9 @@ class UserCreationForm(forms.ModelForm):
     ),
                             )
     password2 = forms.CharField(label='确认密码',widget=forms.PasswordInput(
-        attrs={'class': 'form-control', 'placeholder': '确认密码', 'required': ''}),
-                                )
+        attrs={'class': 'form-control', 'placeholder': '确认密码', 'required': ''}),)
+
+    captcha = CaptchaField(label='验证码')
 
     class Meta:
         model = User
@@ -27,7 +29,6 @@ class UserCreationForm(forms.ModelForm):
 
     def clean_username(self):
         username = self.cleaned_data["username"]
-        print('hello')
         try:
             User._default_manager.get(username=username)
         except User.DoesNotExist:
@@ -89,10 +90,7 @@ class LoginForm(forms.Form):
     password = forms.CharField(label='密码', widget=forms.PasswordInput(
         attrs={'class': 'form-control', 'placeholder': '密码', 'required': ''}
     ), error_messages={'required': "密码不能为空"},)
-
-    auto_login = forms.BooleanField(label='记住密码', required=False, widget=forms.CheckboxInput(
-        attrs={'value': 1}
-    ))
+    captcha = CaptchaField(label='验证码',error_messages={'required':'验证码不能为空'})
 
     def __init__(self,request=None, *args, **kwargs):
         self.request = request
@@ -124,8 +122,6 @@ class LoginForm(forms.Form):
     def get_auto_login(self):
         """是否勾选了自动登录"""
         return self.auth_login
-
-
 
 
 

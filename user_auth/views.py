@@ -4,6 +4,8 @@ from .forms import LoginForm, UserCreationForm, PasswordResetForm
 from django.http import HttpResponse,HttpResponseRedirect
 from django.core.exceptions import PermissionDenied
 from django.core.mail import send_mail
+from captcha.models import CaptchaStore
+from captcha.helpers import captcha_image_url
 import json
 
 
@@ -18,6 +20,10 @@ def user_login(request):
             if user:
                 login(request,user)
                 return HttpResponseRedirect(request.REQUEST.get('next',''))
+    if request.GET.get('newsn')=='1':
+        csn=CaptchaStore.generate_key()
+        cimageurl= captcha_image_url(csn)
+        return HttpResponse(cimageurl)
     form=LoginForm(request)
     context['form'] = form
     return render(request, 'user_auth/login.html', context)
@@ -63,7 +69,10 @@ def register(request):
         else:
             context['form'] = form
             return render(request, 'user_auth/register.html',context)
-
+    if request.GET.get('newsn')=='1':
+        csn=CaptchaStore.generate_key()
+        cimageurl= captcha_image_url(csn)
+        return HttpResponse(cimageurl)
     form = UserCreationForm()
     context['form'] = form
     return render(request,'user_auth/register.html',context)

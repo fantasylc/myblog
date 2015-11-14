@@ -1,1 +1,66 @@
 {% extends 'base.html' %}
+{% block css %}
+    <style>
+    body{background:url("../static/img/aboutme.jpg") no-repeat;
+        background-size: cover;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-attachment: fixed;}
+    .message_text{
+        width: 100%;
+    }
+    #message_d1{
+        background:rgba(255, 255, 255,0.4);
+        filter:alpha(opacity=40);
+        font-size: 14px;
+        color: #000000;
+    }
+    #message_d2{
+        position: relative;
+    }
+    .errorlist{
+        color: #ff0033;
+        font-size: 16px;
+    }
+    #yesorno{
+        visibility: hidden;
+        color: #00ff00;
+        font-size: 16px;
+    }
+    </style>
+{% endblock %}
+{% block main %}
+    <div class="row">
+    <div id="message_d1" class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+    <div id="message_d2">
+       <form role="form" method="post" id="message-form">
+           {% csrf_token %}
+    {{ form.as_p }}
+       <button type="submit" class="btn btn-md btn-danger pull-right">提交</button>
+       </form>
+    </div>
+        <div id="yesorno" class="text-center">{{ yesorno }}</div>
+        <script>
+            $(function(){
+                var yesorno = $("#yesorno")[0].textContent;
+                if(yesorno){
+                    alert(yesorno)
+                }
+
+            })
+        </script>
+    </div>
+     <script>
+        $('.captcha').click(function(){ //点击图片刷新
+                                var tmp = Math.random().toString();
+                                $.get("?newsn=1&tmp="+tmp, function(result){
+                                    $('.captcha').attr("src", result);
+                                    $('#id_captcha_0').attr("value", result.split('/')[3]);
+                                });
+                            return false;
+                        });
+    </script>
+    </div>
+
+
+{% endblock %}

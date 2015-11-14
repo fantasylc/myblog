@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load pagination_tags %}
+{% block css %}
+    <title>随笔列表</title>
+{% endblock %}
+{% block main %}
+    <div class="row">
+     <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+     <h2>最近写的随笔列表</h2>
+         {% if article_list %}
+      {% autopaginate article_list 8%}
+        {% for post in article_list %}
+            {% if post.status == 0 %}
+            {% include 'includes/suibi_list.html' %}
+            {% endif %}
+         {% endfor %}
+      <div class="text-center" style="font-size:22px;">{% paginate %}</div>
+      {% endif %}
+     </div>
+    </div>
+{% endblock %}

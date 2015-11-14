@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'o%ux2y225=l%%vot_oy7%)s0hslx(*=mt!f!q(61^6=$c&no=3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -37,10 +37,13 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'captcha',
     'pagination',
     'blog',
     'music',
     'user_auth',
+    'photo',
+    'reading'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -62,7 +65,9 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'user_auth/templates/'),
                  os.path.join(BASE_DIR, 'blog/templates/'),
-                 os.path.join(BASE_DIR, 'music/templates/')],
+                 os.path.join(BASE_DIR, 'music/templates/'),
+                 os.path.join(BASE_DIR, 'photo/templates/'),
+                 os.path.join(BASE_DIR, 'reading/templates/')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -94,7 +99,7 @@ DATABASES = {
         'ENGINE':'django.db.backends.mysql',
         'NAME':'blogdb',
         'USER':'root',
-        'PASSWORD':'',
+        'PASSWORD':'2898827027',
         'HOST':'127.0.0.1',
         'PORT':3306,
     }
@@ -182,7 +187,7 @@ PAGE_NUM = 10
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 #static files
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR,'collected_static')
+#STATIC_ROOT = os.path.join(BASE_DIR,'collected_static')
 
 #media files
 MEDIA_URL = '/media/'
@@ -197,3 +202,4 @@ EMAIL_SUBJECT_PREFIX = 'superliu.me'
 EMAIL_USE_TLS = True
 
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+

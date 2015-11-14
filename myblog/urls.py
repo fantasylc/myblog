@@ -13,7 +13,7 @@ Including another URLconf
     1. Add an import:  from blog import urls as blog_urls
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-from django.conf.urls import include, url
+from django.conf.urls import include, url,patterns
 from django.contrib import admin
 
 urlpatterns = [
@@ -21,4 +21,11 @@ urlpatterns = [
     url(r'', include('blog.urls', namespace='blog')),
     url(r'user_auth/', include('user_auth.urls', namespace='user_auth')),
     url(r'^music/', include('music.urls', namespace='music')),
+    url(r'^photo/',include('photo.urls',namespace='photo')),
+    url(r'^reading/',include('reading.urls', namespace='reading'))
 ]
+
+urlpatterns += patterns('',
+    url(r'^captcha/', include('captcha.urls')),
+)
+

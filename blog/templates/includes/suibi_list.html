@@ -1,0 +1,49 @@
+<div class="media home_arti well">
+      <div class="home_arti_title">
+      <h3><a href="/suibi/{{ post.id }}" class="home_arti_title_a">{{ post.title }}</a></h3>
+      </div>
+      <div class="home_arti_info">
+        <span>&nbsp;&nbsp;</span>
+        <span>
+          <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+          {{post.pub_time|date:"Y-m-d" }}
+        </span>
+        <span>&nbsp;&nbsp;</span>
+        <span>
+          <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+          {{post.view_times}}
+        </span>
+        <span>&nbsp;&nbsp;</span>
+        <span>
+          <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+          {{post.commentsuibi_set.all | length}}
+        </span>
+        <span>&nbsp;&nbsp;</span>
+        <span>
+         <span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>&nbsp;
+            {% for tag in post.get_tags %}
+            <span class="label tags-{{ forloop.counter }}">{{ tag }}</span>
+            {% endfor %}
+        </span>
+     </div>
+      <div class="div_hr"></div>
+
+      <div class="row home_arti_row">
+        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-5 home_arti_img">
+          <a href="/suibi/{{ post.id }}" class="">
+          <img src="{{ post.img }}" height="104px"  class="thumbnail">
+          </a>
+        </div>
+        <div class="col-lg-8 col-md-8 col-sm-7 col-xs-6 home_arti_sum">
+             <p>
+                 {% autoescape off%}
+                {{post.summary|slice:"200" }}
+                {% endautoescape %}
+                {% if post.summary|length > 200 %}
+                    ...
+                {% endif %}
+             </p>
+            <a type="button" href="/suibi/{{ post.id }}" class="btn btn-info pull-right">阅读全文</a>
+        </div>
+      </div>
+    </div>

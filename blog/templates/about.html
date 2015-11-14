@@ -1,4 +1,61 @@
 {% extends 'base.html' %}
+{% block html %}xmlns:wb="http://open.weibo.com/wb"{% endblock %}
+{% block css %}
+    <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+    <style>
+    body{background:url("../static/img/aboutme.jpg") no-repeat;
+        background-size: cover;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-attachment: fixed;}
+    #about_d1{
+        background:rgba(255, 255, 255,0.55);
+        filter:alpha(opacity=55);
+        font-size: 14px;
+        color: #000000;
+    }
+    .about_d2{
+        position: relative;
+    }
+    a{
+        color:#ff3300;
+    }
+    a:hover{
+        color:#3a97fa ;
+        text-decoration: none;
+    }
+    </style>
+{% endblock %}
 {% block main %}
-<h1>Welcome ~</h1>
+<div class="row">
+<div class=" col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1"
+        id="about_d1">
+      <div class="about_d2">
+          <h3>关于我:</h3>
+          <p>学生党一枚，本来好好的学着物理，却不小心喜欢上了编程,从此就往这条不归路一去不复返．～</p>
+          <p>写博客总结积累最近学的东西，也希望能给新人提供些帮助．</p>
+
+
+      <div>微博:&nbsp;<a href="http://weibo.com/3938804616/profile?topnav=1&wvr=6">进入主页&nbsp;&nbsp;</a><wb:follow-button uid="3938804616" type="red_1" width="67" height="24" ></wb:follow-button>
+      </div>
+
+      <div>邮箱:&nbsp;liuchao_824@163.com&nbsp;&nbsp;
+        163邮箱:<a target="_blank" href="http://mail.163.com/share/mail2me.htm#email=108105117099104097111095056050052064049054051046099111109" style="text-decoration:none;"><img src="http://mimg.127.net/xm/all/share/120111/img/mailme_5_big.png" alt="给我写信"/></a>&nbsp;&nbsp;
+        qq邮箱:<a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=XWxtZG9raW1tam4dLCxzPjIw" style="text-decoration:none;"><img src="http://rescdn.qqmail.com/zh_CN/htmledition/images/function/qm_open/ico_mailme_02.png"/></a>
+     </div>
+      <div>github:&nbsp;<a target="_blank" href="http://github.com/liuchaopy">http://github.com/liuchaopy</a>
+      </div>
+      </div>
+    <hr/>
+     <div>
+         <h3>关于本站:</h3>
+         <p>这是初学python和django．见得第一个站．有点low，加紧施工，一步一步优化吧!</p>
+         <p>基于django的后台,前端用了bootstrap．托管在阿里云上</p>
+         <p>－－＞初学,本站借鉴模仿了<a href="http://vmaig.com">vmaig.com/</a>和
+             <a href="http://beginman.sinaapp.com/">beginman.sinaapp.com</a> 感谢二位，如有雷同，纯属抄袭．</p>
+     </div>
+    <hr />
+</div>
+
+</div>
 {% endblock %}

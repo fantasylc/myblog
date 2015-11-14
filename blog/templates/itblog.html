@@ -26,7 +26,9 @@
         {% if article_list %}
       {% autopaginate article_list 8%}
         {% for post in article_list %}
+            {% if post.status == 0 %}
             {% include 'includes/home_article.html' %}
+            {% endif %}
          {% endfor %}
       <div class="text-center" style="font-size:22px;">{% paginate %}</div>
       {% endif %}

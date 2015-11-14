@@ -4,6 +4,14 @@
 {% block css %}
     <title>登陆</title>
    <link rel="stylesheet" type="text/css" href="{% static 'css/auth.css' %}" />
+    <style>
+    .captcha{
+        height: 28px;
+    }
+    #id_captcha_0{
+        height: 25px;
+    }
+    </style>
 {%  endblock%}
 {% block main %}
     <div class="row">
@@ -11,9 +19,11 @@
     <form role="form" method="post">
     {% csrf_token %}
     <h2> 登陆</h2>
-    {{ form.as_p}}
+        <div  style="margin: 10px auto 10px auto"><span class="glyphicon glyphicon-user"></span><span>{{ form.username }}</span></div>
+        <div  style="margin: 10px auto 10px auto"><span class="glyphicon glyphicon-lock"></span><span>{{ form.password }}</span></div>
+        <div  style="margin: 10px auto 10px auto"><span style="font-size: 14px">{{ form.captcha.label }}</span><span>{{ form.captcha }}</span></div>
 
-    <button class="btn btn-primary btn-block btn-md" type="submit">登陆</button>
+    <button class=" btn btn-primary btn-block btn-md " type="submit">登陆</button>
     </form>
      <div style="height: 30px;text-align: right;margin-top: 12%;font-size: 20px">
     <span>没有注册？请</span>
@@ -22,6 +32,16 @@
     </span>
     </div>
    </div>
+    <script>
+        $('.captcha').click(function(){ //点击图片刷新
+                                var tmp = Math.random().toString();
+                                $.get("?newsn=1&tmp="+tmp, function(result){
+                                    $('.captcha').attr("src", result);
+                                    $('#id_captcha_0').attr("value", result.split('/')[3]);
+                                });
+                            return false;
+                        });
+    </script>
     </div>
 　　
 {% endblock %}

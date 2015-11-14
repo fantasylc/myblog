@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block css %}
+    <title>{{ article.title }}</title>
+    <meta name="keywords" content="{% for tag in article.get_tags%}{{tag}},{% endfor %}"/>
+    <meta  name="description" content="{{article.summary}}" />
+   <link rel="stylesheet" type="text/css" href="{% static 'css/itarticle.css' %}" />
+{%  endblock%}
+{% block main %}
+    <div class="row">
+    <div class="col-md-8 col-sm-8 col-lg-8 col-md-offset-2 col-lg-offset-2 col-sm-offset-2">
+    <div class=" well article-page">
+
+           <div>
+
+               <div class="article-title">
+                    <h1>{{article.title}}</h1>
+                </div>
+           <div>
+               <div class="home_arti_info">
+        <span>&nbsp;</span>
+        <span>
+          <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+          {{article.pub_time|date:"Y-m-d" }}
+        </span>
+        <span>&nbsp;&nbsp;</span>
+        <span>
+          <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+          {{article.view_times}}
+        </span>
+        <span>&nbsp;&nbsp;</span>
+        <span>
+          <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+          {{article.commentsuibi_set.all | length}}
+        </span>
+        <span>&nbsp;&nbsp;</span>
+        <span>
+         <span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>&nbsp;
+            {% for tag in article.get_tags %}
+        <span class="label tags-{{ forloop.counter }} btn">{{ tag }}</span>
+            {% endfor %}
+        </span>
+     </div>
+           </div>
+           <div class="div_hr" style = "margin-bottom: 20px"></div>
+                <div class="article-content">
+                  
+                   <p> {{article.content | safe}}</p>
+                </div>
+           </div>
+    </div>
+    {% include "./includes/share.html" %}
+    {% include "./includes/commentsuibi.html" %}
+    </div>
+    </div>
+{% endblock %}
